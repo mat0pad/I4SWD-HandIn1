@@ -15,7 +15,7 @@ namespace I4SWD_HandIn1
 
         public void PrintPortfolio(Portfolio pf)
         {
-            Console.WriteLine("Printing out Stocks for Portfollio: {0}",pf.name);
+            Console.WriteLine("Printing out Stocks for Portfollio: {0}",pf.Name);
             foreach (var item in pf.Stocks)
             {
                 PrintStock(item);

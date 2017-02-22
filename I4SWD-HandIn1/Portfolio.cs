@@ -8,10 +8,16 @@ namespace I4SWD_HandIn1
 {
     public class Portfolio : IPortfolio
     {
-
-        private IPortfolioDisplay Display;
+        public IPortfolioDisplay Display;
         private List<Stock> Stocks = new List<Stock>();
         public double TotalValue { get; set; } = 0;
+        public string Name { get; set; }
+
+        public Portfolio(string name , IPortfolioDisplay display)
+        {
+            Name = name;
+            Display = display;
+        }
 
         public void AddStock(Stock stock)
         {

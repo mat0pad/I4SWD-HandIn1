@@ -7,31 +7,31 @@ using System.Threading.Tasks;
 
 namespace I4SWD_HandIn1
 {
-    class ConcreteStock :  Stock
+    public class ConcreteStock :  Stock
     {
-        public ConcreteStock(double StackOfStock, string Name, double Amount)
+        public ConcreteStock(double stateOfStock, string name, double amount)
         {
-            stackOfstock = StackOfStock;
-            name = Name;
-            amount = Amount;
+            StateOfstock = stateOfStock;
+            Name = name;
+            Amount = amount;
         }
-        public double stackOfstock { get; set; }
-        public string name { get; set; }
-        public double amount { get; set; }
+        public double StateOfstock { get; set; }
+        public string Name { get; set; }
+        public double Amount { get; set; }
 
-        public void SetStackOfstock(double StackOfStock)
+        public void SetStateOfstock(double stateOfStock)
         {
-            this.stackOfstock = StackOfStock;
+            StateOfstock = stateOfStock;
             Notify();
         }
-        public void SetName(string Name)
+        public void SetName(string name)
         {
-            name = Name;
+            Name = name;
             Notify();
         }
-        public void SetAmount(double Amount)
+        public void SetAmount(double amount)
         {
-            amount = Amount;
+            Amount = amount;
             Notify();
         }
         ConcreteStock GetState()

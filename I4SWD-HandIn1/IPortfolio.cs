@@ -4,6 +4,7 @@ namespace I4SWD_HandIn1
 {
     public interface IPortfolio
     {
-        void Update();
+        void Update(Stock stock);
+        void AddStock(Stock stock);
     }
 }

@@ -6,17 +6,25 @@ using System.Threading.Tasks;
 
 namespace I4SWD_HandIn1
 {
-    public class Portfolio : IPortfolio, IPortfolioDisplay
+    public class Portfolio : IPortfolio
     {
+        private IPortfolioDisplay Display;
+        private List<Stock> stocks = new List<Stock>();
 
-        public void PrintPortfolio()
+        public Portfolio(IPortfolioDisplay display)
         {
-            throw new NotImplementedException();
+            Display = display;
         }
 
-        public void Update()
+        public void AddStock(Stock stock)
         {
-            throw new NotImplementedException();
+            stock.Attach(this);
+            stocks.Add(stock);
+        }
+
+        public void Update(Stock stock)
+        {
+            Display.PrintPortfolio();
         }
     }
 }

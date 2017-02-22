@@ -16,14 +16,17 @@ namespace I4SWD_HandIn1
 
         public void PrintPortfolio(Portfolio pf, bool changed = false, int indexChanged = -1)
         {
-            Console.WriteLine("\n- - - - - - - - - - - - - - - - - - - - -");
+            Console.WriteLine("\n\n- - - - - - - - - - - - - - - - - - - - -");
             Console.WriteLine("Portfollio: {0}\n",pf.Name);
             foreach (var item in pf.Stocks)
             {
                 if (!changed)
                     PrintStock(item);
-                else
+                else if (changed && indexChanged != -1)
                     PrintStock(item, pf.Stocks.IndexOf(item) == indexChanged);
+                else
+                    Console.WriteLine("Error - IndexChange is -1");
+                
             }
 
             Console.WriteLine("\nTotal value:  " + pf.TotalValue.ToString("C", CultureInfo.CreateSpecificCulture("da-DK")));

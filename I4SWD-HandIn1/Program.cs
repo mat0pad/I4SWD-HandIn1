@@ -28,7 +28,6 @@ namespace I4SWD_HandIn1
 
             stock3.SetStateOfstock(23);
 
-
             stock3.SetStateOfstock(21);
 
             stock2.SetStateOfstock(765);

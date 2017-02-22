@@ -26,22 +26,21 @@ namespace I4SWD_HandIn1
             stock.Attach(this);
             Stocks.Add(stock);
 
-            TotalValue += stock.StateOfstock;
+            TotalValue += stock.StateOfstock * stock.Amount;
         }
 
         public void Update(Stock s)
         {
+            TotalValue = 0;
+            foreach (var item in Stocks)
+                TotalValue += item.StateOfstock * item.Amount;
+
             foreach (var item in Stocks)
             {
                 if (item.Name == s.Name)
-                {
-                    TotalValue += item.StateOfstock - s.StateOfstock;
-                    item.SetAmount(s.Amount);
-                    item.SetStateOfstock(s.StateOfstock);
-                    break;
-                }
-                TotalValue += s.StateOfstock;
-            }
+                     Display.PrintPortfolio(this, true, Stocks.IndexOf(item));
+            }  
+            
         }
     }
 }

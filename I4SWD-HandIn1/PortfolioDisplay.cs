@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,20 +14,25 @@ namespace I4SWD_HandIn1
             throw new NotImplementedException();
         }
 
-        public void PrintPortfolio(Portfolio pf)
+        public void PrintPortfolio(Portfolio pf, bool changed = false, int indexChanged = -1)
         {
-            Console.WriteLine("Printing out Stocks for Portfollio: {0}",pf.Name);
+            Console.WriteLine("\n- - - - - - - - - - - - - - - - - - - - -");
+            Console.WriteLine("Portfollio: {0}\n",pf.Name);
             foreach (var item in pf.Stocks)
             {
-                PrintStock(item);
+                if (!changed)
+                    PrintStock(item);
+                else
+                    PrintStock(item, pf.Stocks.IndexOf(item) == indexChanged);
             }
+
+            Console.WriteLine("\nTotal value:  " + pf.TotalValue.ToString("C", CultureInfo.CreateSpecificCulture("da-DK")));
         }
 
-        public void PrintStock(Stock printme)
+        public void PrintStock(Stock printme, bool changed = false)
         {
-            Console.WriteLine("\nName is: {0}",printme.Name);
-            Console.WriteLine("Amount is: {0}", printme.Amount);
-            Console.WriteLine("State of the stock is: {0}", printme.StateOfstock);
+            Console.WriteLine("Name: {0} \t|\t Amount: {1} \t|\t Value: {2}" + (changed != true ? "" : "\t#"), 
+                printme.Name, printme.Amount, printme.StateOfstock);
         }
     }
 }

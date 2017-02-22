@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace I4SWD_HandIn1
@@ -26,11 +27,35 @@ namespace I4SWD_HandIn1
 
             display.PrintPortfolio(AntonPf);
 
-            stock3.SetStateOfstock(23);
+            var thread1 = new Thread( () => StockThread(stock1));
+            var thread2 = new Thread(() => StockThread(stock2));
+            var thread3 = new Thread(() => StockThread(stock3));
+            var thread4 = new Thread(() => StockThread(stock4));
 
-            stock3.SetStateOfstock(21);
-
-            stock2.SetStateOfstock(765);
+            thread1.Start();
+            thread2.Start();
+            thread3.Start();
+            thread4.Start();
         }
+
+        public static void StockThread(Stock stock)
+        {
+            Random rnd = new Random();
+
+            int initialStockValue = (int) stock.StateOfstock;
+
+            Thread.Sleep(rnd.Next(1, 13) * 2000);
+
+            for (int i = 0; i < 11; i++)
+            {
+                double newValue = (double) rnd.Next((int) (initialStockValue * 0.95), (int)(initialStockValue * 1.05));
+                stock.SetStateOfstock(newValue);
+
+                int time = rnd.Next(1, 13);
+                Thread.Sleep(time * 1500);
+            }
+            
+        }
+
     }
 }

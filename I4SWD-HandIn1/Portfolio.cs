@@ -38,7 +38,7 @@ namespace I4SWD_HandIn1
             foreach (var item in Stocks)
             {
                 if (item.Name == s.Name)
-                     Display.PrintPortfolio(this, true, Stocks.IndexOf(item));
+                     Display.PrintPortfolio(this, Stocks.IndexOf(item));
             }  
             
         }

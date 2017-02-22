@@ -15,7 +15,7 @@ namespace I4SWD_HandIn1
 
         public void PrintPortfolio(Portfolio pf)
         {
-
+            
         }
     }
 }

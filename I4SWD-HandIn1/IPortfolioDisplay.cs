@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace I4SWD_HandIn1
 {
-    interface IPortfolioDisplay
+    public interface IPortfolioDisplay
     {
-        void PrintPortfolio(string name);
+        void PrintPortfolio(Portfolio pf);
         void PrintAllPortfolios();
     }
 }

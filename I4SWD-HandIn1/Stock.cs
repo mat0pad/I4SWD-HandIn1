@@ -25,7 +25,7 @@ namespace I4SWD_HandIn1
         {
             foreach (var item in portfolios)
             {
-                item.Update();
+                item.Update(this);
             }
         }
     }

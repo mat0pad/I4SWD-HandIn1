@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace I4SWD_HandIn1
 {
-    public class Portfolio : IPortfolio, IPortfolioDisplay
+    public class Portfolio : IPortfolio
     {
 
-        public void PrintPortfolio()
-        {
-            throw new NotImplementedException();
-        }
+
 
         public void Update()
         {

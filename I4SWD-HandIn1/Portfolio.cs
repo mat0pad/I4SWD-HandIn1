@@ -10,7 +10,7 @@ namespace I4SWD_HandIn1
     {
 
         private IPortfolioDisplay Display;
-        private List<Stock> Stocks = new List<Stock>();
+        public List<Stock> Stocks = new List<Stock>();
         public double TotalValue { get; set; } = 0;
 
         public void AddStock(Stock stock)

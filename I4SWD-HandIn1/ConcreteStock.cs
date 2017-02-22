@@ -9,6 +9,12 @@ namespace I4SWD_HandIn1
 {
     class ConcreteStock :  Stock
     {
+        public ConcreteStock(double StackOfStock, string Name, double Amount)
+        {
+            stackOfstock = StackOfStock;
+            name = Name;
+            amount = Amount;
+        }
         public double stackOfstock { get; set; }
         public string name { get; set; }
         public double amount { get; set; }

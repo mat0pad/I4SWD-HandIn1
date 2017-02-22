@@ -8,6 +8,7 @@ namespace I4SWD_HandIn1
 {
     public interface IPortfolioDisplay
     {
-        void PrintPortfolio();
+        void PrintPortfolio(Portfolio pf);
+        void PrintAllPortfolios();
     }
 }

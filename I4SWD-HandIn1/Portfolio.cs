@@ -8,23 +8,32 @@ namespace I4SWD_HandIn1
 {
     public class Portfolio : IPortfolio
     {
+
         private IPortfolioDisplay Display;
         private List<Stock> Stocks = new List<Stock>();
-
-        public Portfolio(IPortfolioDisplay display)
-        {
-            Display = display;
-        }
+        public double TotalValue { get; set; } = 0;
 
         public void AddStock(Stock stock)
         {
             stock.Attach(this);
             Stocks.Add(stock);
+
+            TotalValue += stock.StateOfstock;
         }
 
-        public void Update(Stock stock)
+        public void Update(Stock s)
         {
-            Display.PrintPortfolio();
+            foreach (var item in Stocks)
+            {
+                if (item.Name == s.Name)
+                {
+                    TotalValue += item.StateOfstock - s.StateOfstock;
+                    item.SetAmount(s.Amount);
+                    item.SetStateOfstock(s.StateOfstock);
+                    break;
+                }
+                TotalValue += s.StateOfstock;
+            }
         }
     }
 }

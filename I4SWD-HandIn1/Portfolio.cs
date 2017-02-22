@@ -9,7 +9,7 @@ namespace I4SWD_HandIn1
     public class Portfolio : IPortfolio
     {
         private IPortfolioDisplay Display;
-        private List<Stock> stocks = new List<Stock>();
+        private List<Stock> Stocks = new List<Stock>();
 
         public Portfolio(IPortfolioDisplay display)
         {
@@ -19,7 +19,7 @@ namespace I4SWD_HandIn1
         public void AddStock(Stock stock)
         {
             stock.Attach(this);
-            stocks.Add(stock);
+            Stocks.Add(stock);
         }
 
         public void Update(Stock stock)

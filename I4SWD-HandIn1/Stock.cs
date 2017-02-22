@@ -6,7 +6,7 @@ namespace I4SWD_HandIn1
     {
         private List<IPortfolio> portfolios;
 
-        Stock()
+        public Stock()
         {
             portfolios = new List<IPortfolio>();
         }

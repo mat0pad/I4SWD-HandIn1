@@ -34,10 +34,6 @@ namespace I4SWD_HandIn1
             amount = Amount;
             Notify();
         }
-        ConcreteStock GetState()
-        {
-            return this;
-        }
 
 
     }

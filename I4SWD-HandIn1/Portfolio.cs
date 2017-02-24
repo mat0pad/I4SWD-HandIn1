@@ -10,7 +10,7 @@ namespace I4SWD_HandIn1
     {
 
         private IPortfolioDisplay Display;
-        public List<Stock> Stocks = new List<Stock>();
+        public List<ConcreteStock> Stocks = new List<ConcreteStock>();
 
         public double TotalValue { get; set; } = 0;
         public string Name { get; set; }
@@ -21,7 +21,7 @@ namespace I4SWD_HandIn1
             Display = display;
         }
 
-        public void AddStock(Stock stock)
+        public void AddStock(ConcreteStock stock)
         {
             stock.Attach(this);
             Stocks.Add(stock);
@@ -29,7 +29,7 @@ namespace I4SWD_HandIn1
             TotalValue += stock.StateOfstock * stock.Amount;
         }
 
-        public void Update(Stock s)
+        public void Update(ConcreteStock s)
         {
             TotalValue = 0;
             foreach (var item in Stocks)

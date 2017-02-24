@@ -6,12 +6,8 @@ namespace I4SWD_HandIn1
     {
         private List<IPortfolio> portfolios;
 
-        public Stock(double stateOfStock, string name, double amount)
+        public Stock()
         {
-            StateOfstock = stateOfStock;
-            Name = name;
-            Amount = amount;
-
             portfolios = new List<IPortfolio>();
         }
 
@@ -25,32 +21,14 @@ namespace I4SWD_HandIn1
             portfolios.Remove(p);
         }
 
-        public void Notify()
+        public void Notify(ConcreteStock stock)
         {
             foreach (var item in portfolios)
             {
-                item.Update(this);
+                item.Update(stock);
             }
         }
-    
-        public double StateOfstock { get; private set; }
-        public string Name { get; private set; }
-        public double Amount { get; private set; }
 
-        public void SetStateOfstock(double stateOfStock)
-        {
-            StateOfstock = stateOfStock;
-            Notify();
-        }
-        public void SetName(string name)
-        {
-            Name = name;
-            Notify();
-        }
-        public void SetAmount(double amount)
-        {
-            Amount = amount;
-            Notify();
-        }
+        
     }
 }

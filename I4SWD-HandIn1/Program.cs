@@ -27,7 +27,7 @@ namespace I4SWD_HandIn1
 
             display.PrintPortfolio(AntonPf);
 
-            var thread1 = new Thread( () => StockThread(stock1));
+            var thread1 = new Thread(() => StockThread(stock1));
             var thread2 = new Thread(() => StockThread(stock2));
             var thread3 = new Thread(() => StockThread(stock3));
             var thread4 = new Thread(() => StockThread(stock4));
@@ -38,23 +38,23 @@ namespace I4SWD_HandIn1
             thread4.Start();
         }
 
-        public static void StockThread(Stock stock)
+        public static void StockThread(ConcreteStock stock)
         {
-            Random rnd = new Random();
+            Random rand = new Random();
 
-            int initialStockValue = (int) stock.StateOfstock;
+            int initialStockValue = (int)stock.StateOfstock;
 
-            Thread.Sleep(rnd.Next(1, 13) * 2000);
+            Thread.Sleep(rand.Next(1, 13) * 2000);
 
             for (int i = 0; i < 11; i++)
             {
-                double newValue = (double) rnd.Next((int) (initialStockValue * 0.95), (int)(initialStockValue * 1.05));
+                double newValue = (double)rand.Next((int)(initialStockValue * 0.95), (int)(initialStockValue * 1.05));
                 stock.SetStateOfstock(newValue);
 
-                int time = rnd.Next(1, 13);
+                int time = rand.Next(1, 13);
                 Thread.Sleep(time * 1500);
             }
-            
+
         }
 
     }

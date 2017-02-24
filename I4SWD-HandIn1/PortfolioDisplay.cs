@@ -11,20 +11,22 @@ namespace I4SWD_HandIn1
     {
         public void PrintPortfolio(Portfolio pf,  int indexChanged = -1)
         {
-            Console.WriteLine("\n\n- - - - - - - - - - - - - - - - - - - - -");
-            Console.WriteLine("Portfollio: {0}\n",pf.Name);
+            StringBuilder sb = new StringBuilder();
+            
             foreach (var item in pf.Stocks)
             {
-               PrintStock(item, pf.Stocks.IndexOf(item) == indexChanged);
+               sb.Append(PrintStock(item, pf.Stocks.IndexOf(item) == indexChanged));
             }
 
-            Console.WriteLine("\nTotal value:  " + pf.TotalValue.ToString("C", CultureInfo.CreateSpecificCulture("da-DK")));
+
+            Console.WriteLine("\n\n- - - - - - - - - - - - - - - - - - - - -\nPortfollio:" + $"{pf.Name}\n" + $"{sb.ToString()}\n\nTotal value:  " + pf.TotalValue.ToString("C", CultureInfo.CreateSpecificCulture("da-DK")));
         }
 
-        public void PrintStock(Stock printme, bool changed = false)
+        public string PrintStock(ConcreteStock printme, bool changed = false)
         {
-            Console.WriteLine("Name: {0} \t|\t Amount: {1} \t|\t Value: {2}" + (changed != true ? "" : "\t#"), 
-                printme.Name, printme.Amount, printme.StateOfstock);
+            string s = $"Name: {printme.Name} \t|\t Amount: {printme.Amount} \t|\t Value: {printme.StateOfstock}" + (changed != true ? "" : "\t#") + "\n";
+
+            return s;
         }
     }
 }
